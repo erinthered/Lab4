@@ -8,7 +8,7 @@ This program ...
 */
 
 #include <iostream>
-#include <math>
+#include <cmath>
 using namespace std;
 
 // Precondition: num > 0
@@ -21,10 +21,12 @@ int getDigit(int num, int index);  // return the index'th digit of num
 
 int main()
 {
+int num;
+
 cout << "Enter a positive number: ";
 cin >> num;
 
-cout << reversePos(num);
+cout << reversePos(num) << endl;
 
 return 0;
 }
@@ -53,11 +55,12 @@ int getDigit(int num, int index)
 int reversePos(int num)
 {
     int numDig = numDigits(num);
+    cout << "Number of digits: " << numDig << endl;
     int sum = 0;
-    for (i=0; i<numDig; i++)
+    for (int i=0; i<numDig; i++)
     {
-       int numAtIndex = getDigit(num, i)
-       int reverseNum = numAtIndex * (pow(10, numDig-i))
+       int numAtIndex = getDigit(num, i);
+       int reverseNum = numAtIndex * (pow(10, numDig-(i+1)));
        sum += reverseNum;
     }
     return sum;
